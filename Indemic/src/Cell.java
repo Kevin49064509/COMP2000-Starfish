@@ -1,4 +1,4 @@
-public class Cell {
+public abstract class Cell {
     private int damage;
 
     public Cell(int damage) {

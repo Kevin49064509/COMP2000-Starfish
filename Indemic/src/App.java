@@ -9,7 +9,7 @@ public class App {
         frame.setVisible(true);
 
         Boss boss = new Boss(100);
-        Cell cell = new Cell(10);
+        Cell cell = new attackCell(10);
 
         while (!boss.isDead()) {
             cell.applyDamage(boss);
