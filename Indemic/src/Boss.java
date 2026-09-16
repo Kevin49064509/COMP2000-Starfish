@@ -23,4 +23,8 @@ public class Boss {
     public int getHealth() {
         return health;
     }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
 }

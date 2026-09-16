@@ -9,12 +9,12 @@ public class App {
         frame.setSize(500,500);
         frame.setLocationRelativeTo(null);
 
-        gamePanel panel = new gamePanel(new Boss(100));
-        frame.add(panel);
-        
-        frame.setVisible(true);
-
         Boss boss = new Boss(100);
+
+        gamePanel gamePanel = new gamePanel(boss);
+        frame.add(gamePanel);
+
+        frame.setVisible(true);
 
         //variables, move to a class later for cleaner code
         int resources = 20;
@@ -37,7 +37,8 @@ public class App {
                 for (Cell cell : cells) {
                     cell.applyDamage(boss);
                 }
-                panel.repaint();
+                System.out.println("Boss health: " + boss.getHealth());
+                gamePanel.repaint();
             }
         });
         timer.start();
