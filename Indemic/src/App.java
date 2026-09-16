@@ -1,3 +1,4 @@
+import java.util.*;
 import javax.swing.JFrame;
 
 public class App {
@@ -8,11 +9,17 @@ public class App {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        List<Cell> cells = new ArrayList<Cell>();
+        cells.add(new attackCell(10));
+        cells.add(new baseCell(5));
+
         Boss boss = new Boss(100);
-        Cell cell = new attackCell(10);
+        
 
         while (!boss.isDead()) {
-            cell.applyDamage(boss);
+            for (Cell cell : cells) {
+                cell.applyDamage(boss);
+            }
             System.out.println("Boss health: " + boss.getHealth());
         }
         System.out.println("Boss dead");
