@@ -22,6 +22,7 @@ public class App {
         List<Cell> cells = new ArrayList<Cell>();
         cells.add(new attackCell(10, 99, 0.2)); //testing crit delete later
 
+        //TESTING DELETE THIS
         try {
             Cell baseCell = new baseCell(5, 10);
             if (resources < baseCell.getCost()) {
@@ -45,14 +46,27 @@ public class App {
         timer.start();
     }
 
-    /*
-    add method to buy cells
-
-    public static void buyCell(Cell cell, int cost, int resources, List<Cell> cells) throws Exception{
+    //OVERLOAD METHOD HERE INTO BUY still need to finish logic
+    //buy one
+    public static int buyCell(Cell cell, int resources, List<Cell> cells) throws poorException{
         if (resources < cell.getCost()) {
             throw new poorException("insufficient tbd");
         }
+        resources -= cell.getCost();
         cells.add(cell);
+        return resources;
     }
-        */
+    
+    //buy multiple
+    public static int buyCell(Cell cell, int resources, List<Cell> cells, int quantity) throws poorException{
+        int totalCost = cell.getCost() * quantity;
+        if (resources < totalCost) {
+            throw new poorException("insufficient tbd");
+        }
+        resources -= totalCost;
+        for (int i = 0; i < quantity; i++) {
+            cells.add(cell);
+        }
+        return resources;
+    }
 }
