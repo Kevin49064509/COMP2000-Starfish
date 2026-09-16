@@ -1,5 +1,6 @@
-import java.util.*;
-import javax.swing.JFrame;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -7,15 +8,16 @@ public class App {
 
         frame.setSize(500,500);
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
 
         gamePanel panel = new gamePanel(new Boss(100));
         frame.add(panel);
+        
+        frame.setVisible(true);
 
         Boss boss = new Boss(100);
 
         //variables, move to a class later for cleaner code
-        int resources = 5;
+        int resources = 20;
 
         List<Cell> cells = new ArrayList<Cell>();
 
@@ -30,13 +32,15 @@ public class App {
             System.out.println(e.getMessage());
         }
         
-        while (!boss.isDead()) {
-            for (Cell cell : cells) {
-                cell.applyDamage(boss);
+        Timer timer = new Timer(500, e -> {
+            if (!boss.isDead()) {
+                for (Cell cell : cells) {
+                    cell.applyDamage(boss);
+                }
+                panel.repaint();
             }
-            System.out.println("Boss health: " + boss.getHealth());
-        }
-        System.out.println("Boss dead");
+        });
+        timer.start();
     }
 
     /*

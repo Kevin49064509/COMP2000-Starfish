@@ -15,5 +15,8 @@ public class gamePanel extends JPanel {
         
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, getWidth(), getHeight());
+
+        g.setColor(Color.RED);
+        g.fillRect(50, 50, boss.getHealth(), 20);
     }
 }
