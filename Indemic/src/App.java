@@ -9,6 +9,11 @@ public class App {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        gamePanel panel = new gamePanel(new Boss(100));
+        frame.add(panel);
+
+        Boss boss = new Boss(100);
+
         //variables, move to a class later for cleaner code
         int resources = 5;
 
@@ -24,8 +29,6 @@ public class App {
         } catch (poorException e) {
             System.out.println(e.getMessage());
         }
-
-        Boss boss = new Boss(100);
         
         while (!boss.isDead()) {
             for (Cell cell : cells) {
