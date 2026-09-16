@@ -19,4 +19,8 @@ public class Boss {
     public boolean isDead() {
         return health == 0;
     }
+
+    public int getHealth() {
+        return health;
+    }
 }
