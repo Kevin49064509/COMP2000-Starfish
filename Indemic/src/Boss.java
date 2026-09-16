@@ -8,4 +8,15 @@ public class Boss {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
     }
+
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health < 0) {
+            health = 0;
+        }
+    }
+
+    public boolean isDead() {
+        return health == 0;
+    }
 }
