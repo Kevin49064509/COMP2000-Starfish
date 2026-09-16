@@ -1,5 +1,5 @@
 public class baseCell extends Cell {
-    public baseCell(int damage) {
-        super(damage);
+    public baseCell(int damage, int cost) {
+        super(damage, cost);
     }
 }

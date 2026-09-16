@@ -10,15 +10,23 @@ public class App {
         frame.setVisible(true);
 
         //variables, move to a class later for cleaner code
-        int resources = 100;
+        int resources = 5;
 
         List<Cell> cells = new ArrayList<Cell>();
-        cells.add(new attackCell(10));
-        cells.add(new baseCell(5));
+
+        try {
+            Cell baseCell = new baseCell(5, 10);
+            if (resources < baseCell.getCost()) {
+                throw new poorException("insufficient tbd");
+            }
+            resources -= baseCell.getCost();
+            cells.add(baseCell);
+        } catch (poorException e) {
+            System.out.println(e.getMessage());
+        }
 
         Boss boss = new Boss(100);
         
-
         while (!boss.isDead()) {
             for (Cell cell : cells) {
                 cell.applyDamage(boss);
@@ -28,11 +36,14 @@ public class App {
         System.out.println("Boss dead");
     }
 
-    public void buyCell(Cell cell, int cost) throws Exception poor{
-        if (resources < cost) {
-            throw new poor("insufficient tbd");
+    /*
+    add method to buy cells
+
+    public static void buyCell(Cell cell, int cost, int resources, List<Cell> cells) throws Exception{
+        if (resources < cell.getCost()) {
+            throw new poorException("insufficient tbd");
         }
-        resources -= cost;
         cells.add(cell);
     }
+        */
 }
