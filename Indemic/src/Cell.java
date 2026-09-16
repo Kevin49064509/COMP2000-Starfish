@@ -11,6 +11,10 @@ public abstract class Cell {
         return cost;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
     public void applyDamage(Boss boss) {
         boss.takeDamage(damage);
     }

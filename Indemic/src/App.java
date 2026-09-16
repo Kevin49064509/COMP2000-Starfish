@@ -20,6 +20,7 @@ public class App {
         int resources = 20;
 
         List<Cell> cells = new ArrayList<Cell>();
+        cells.add(new attackCell(10, 99, 0.2)); //testing crit delete later
 
         try {
             Cell baseCell = new baseCell(5, 10);

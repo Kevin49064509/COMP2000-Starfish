@@ -17,7 +17,7 @@ public class gamePanel extends JPanel {
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, getWidth(), getHeight());
 
-        //health bar
+        //health bar - right now just repainting on the same timer as when the boss takes damage but can be made to an observer pattern later
         //health bar dimensions
         int barWidth = 200;
         int barHeight = 20;
