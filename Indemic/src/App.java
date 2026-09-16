@@ -9,6 +9,9 @@ public class App {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        //variables, move to a class later for cleaner code
+        int resources = 100;
+
         List<Cell> cells = new ArrayList<Cell>();
         cells.add(new attackCell(10));
         cells.add(new baseCell(5));
@@ -23,5 +26,13 @@ public class App {
             System.out.println("Boss health: " + boss.getHealth());
         }
         System.out.println("Boss dead");
+    }
+
+    public void buyCell(Cell cell, int cost) throws Exception poor{
+        if (resources < cost) {
+            throw new poor("insufficient tbd");
+        }
+        resources -= cost;
+        cells.add(cell);
     }
 }
