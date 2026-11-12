@@ -59,7 +59,7 @@ public class gamePanel extends JPanel implements bossListener{
 
         //boss
         int cx = getHeight() / 2, cy = getHeight() / 2;
-        g.setColor(Color.RED);
+        g.setColor(boss.isDead() ? Color.LIGHT_GRAY : Color.RED);
         g.fillOval(cx, cy, 50, 50);
 
         //cells
