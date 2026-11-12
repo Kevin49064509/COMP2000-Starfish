@@ -12,16 +12,21 @@ public class App {
         Boss boss = new Boss(1000);
 
         List<Cell> cells = new ArrayList<Cell>();
-        cells.add(new attackCell(10, 99, 0.2)); //testing crit delete later
-        cells.add(new attackCell(10, 99, 0.2));
-        cells.add(new attackCell(10, 99, 0.2));
-        cells.add(new attackCell(10, 99, 0.2));
 
         gamePanel gamePanel = new gamePanel(boss, cells);
         boss.addListener(gamePanel);
         frame.add(gamePanel);
 
         frame.setVisible(true);
+
+        // temp add button
+        JButton addButton = new JButton("Add attack cell");
+        addButton.addActionListener(e -> {
+            cells.add(new attackCell(10, 99, 0.2));
+            gamePanel.repaint();
+        });
+
+        frame.add(addButton, java.awt.BorderLayout.SOUTH);
 
         //variables, move to a class later for cleaner code
         int resources = 20;
