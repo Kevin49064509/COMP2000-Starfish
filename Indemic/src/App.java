@@ -1,4 +1,3 @@
-import java.awt.Panel;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -13,8 +12,8 @@ public class App {
         Boss boss = new Boss(100);
 
         gamePanel gamePanel = new gamePanel(boss);
-        
         boss.addListener(gamePanel);
+        frame.add(gamePanel);
 
         frame.setVisible(true);
 
