@@ -37,10 +37,9 @@ public class App {
         
         Timer timer = new Timer(500, e -> {
             if (!boss.isDead()) {
-                for (Cell cell : cells) {
-                    cell.applyDamage(boss);
-                }
-                System.out.println("Boss health: " + boss.getHealth());
+                gamePanel.setDps(cellStats.dps(cells));
+                cells.forEach(cell -> cell.applyDamage(boss));
+                System.out.println("Boss Health: " + boss.getHealth());
             }
         });
         timer.start();

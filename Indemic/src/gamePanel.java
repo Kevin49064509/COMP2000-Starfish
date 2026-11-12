@@ -3,6 +3,7 @@ import javax.swing.*;
 
 public class gamePanel extends JPanel implements bossListener{
     private Boss boss;
+    private int dps;
 
     public gamePanel(Boss boss) {
         this.boss = boss;
@@ -12,6 +13,11 @@ public class gamePanel extends JPanel implements bossListener{
     @Override
     public void bossChange(Boss boss) {
         repaint();
+    }
+    
+    //show dps
+    public void setDps(int dps) {
+        this.dps = dps;
     }
 
     @Override 
@@ -43,5 +49,9 @@ public class gamePanel extends JPanel implements bossListener{
 
         g.setColor(Color.RED);
         g.fillRect(x, y, fillWidth, barHeight);
+
+        //dps show
+        g.setColor(Color.BLACK);
+        g.drawString("DPS: " + dps, x, y + barHeight + 30);
     }
 }
