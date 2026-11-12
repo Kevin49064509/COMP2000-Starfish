@@ -58,7 +58,9 @@ public class gamePanel extends JPanel implements bossListener{
         g.drawString("DPS: " + dps, x + 25, y + barHeight + 50);
 
         //boss
-        int cx = 250, cy = 250;
+        int cx = getHeight() / 2, cy = getHeight() / 2;
+        g.setColor(Color.RED);
+        g.fillOval(cx, cy, 50, 50);
 
         //cells
         int n = cells.size();
