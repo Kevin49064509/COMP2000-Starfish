@@ -23,6 +23,6 @@ public class attackCell extends Cell {
     //Colour
     @Override 
     public Color getColor() {
-        return Color.RED;
+        return Color.BLUE;
     }
 }

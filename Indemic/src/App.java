@@ -9,10 +9,13 @@ public class App {
         frame.setSize(500,500);
         frame.setLocationRelativeTo(null);
 
-        Boss boss = new Boss(100);
+        Boss boss = new Boss(1000);
 
         List<Cell> cells = new ArrayList<Cell>();
         cells.add(new attackCell(10, 99, 0.2)); //testing crit delete later
+        cells.add(new attackCell(10, 99, 0.2));
+        cells.add(new attackCell(10, 99, 0.2));
+        cells.add(new attackCell(10, 99, 0.2));
 
         gamePanel gamePanel = new gamePanel(boss, cells);
         boss.addListener(gamePanel);
@@ -23,18 +26,6 @@ public class App {
         //variables, move to a class later for cleaner code
         int resources = 20;
 
-        //TESTING DELETE THIS
-        try {
-            Cell baseCell = new baseCell(5, 10);
-            if (resources < baseCell.getCost()) {
-                throw new poorException("insufficient tbd");
-            }
-            resources -= baseCell.getCost();
-            cells.add(baseCell);
-        } catch (poorException e) {
-            System.out.println(e.getMessage());
-        }
-        
         Timer timer = new Timer(500, e -> {
             if (!boss.isDead()) {
                 gamePanel.setDps(cellStats.dps(cells));
