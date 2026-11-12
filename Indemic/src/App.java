@@ -1,3 +1,4 @@
+import java.awt.Panel;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -12,7 +13,8 @@ public class App {
         Boss boss = new Boss(100);
 
         gamePanel gamePanel = new gamePanel(boss);
-        frame.add(gamePanel);
+        
+        boss.addListener(gamePanel);
 
         frame.setVisible(true);
 
@@ -40,7 +42,6 @@ public class App {
                     cell.applyDamage(boss);
                 }
                 System.out.println("Boss health: " + boss.getHealth());
-                gamePanel.repaint();
             }
         });
         timer.start();

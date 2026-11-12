@@ -1,12 +1,17 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class gamePanel extends JPanel {
+public class gamePanel extends JPanel implements bossListener{
     private Boss boss;
 
     public gamePanel(Boss boss) {
         this.boss = boss;
         setPreferredSize(new Dimension(500, 500));
+    }
+
+    @Override
+    public void bossChange(Boss boss) {
+        repaint();
     }
 
     @Override 
