@@ -11,7 +11,10 @@ public class App {
 
         Boss boss = new Boss(100);
 
-        gamePanel gamePanel = new gamePanel(boss);
+        List<Cell> cells = new ArrayList<Cell>();
+        cells.add(new attackCell(10, 99, 0.2)); //testing crit delete later
+
+        gamePanel gamePanel = new gamePanel(boss, cells);
         boss.addListener(gamePanel);
         frame.add(gamePanel);
 
@@ -19,9 +22,6 @@ public class App {
 
         //variables, move to a class later for cleaner code
         int resources = 20;
-
-        List<Cell> cells = new ArrayList<Cell>();
-        cells.add(new attackCell(10, 99, 0.2)); //testing crit delete later
 
         //TESTING DELETE THIS
         try {

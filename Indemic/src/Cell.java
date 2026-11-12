@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public abstract class Cell {
     private int damage;
     private int cost;
@@ -17,5 +19,10 @@ public abstract class Cell {
 
     public void applyDamage(Boss boss) {
         boss.takeDamage(damage);
+    }
+
+    //base colour
+    public Color getColor() {
+        return Color.GRAY;
     }
 }
